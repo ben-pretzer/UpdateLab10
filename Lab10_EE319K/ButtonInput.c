@@ -27,7 +27,7 @@ void	testInput(void){
 }
 
 void randomInput(void){
-	
+	uint32_t randomValue = 0;
 	struct	inputStruct{
 		uint8_t	inputs[3];
 	};
@@ -40,26 +40,39 @@ void randomInput(void){
 		{2,1,0},
 		{2,0,1}
 	};
-	for (uint8_t i =0; i<3; i++){
-		if ((Random()%5) == 0){
-				correctInput[i] = inputCombo[0].inputs[i];
-		}
-		else if ((Random()%5) == 1){
-				correctInput[i] = inputCombo[1].inputs[i];
-		}
-		else if ((Random()%5) == 2){
-				correctInput[i] = inputCombo[2].inputs[i];
-		}
-		else if ((Random()%5) == 3){
-				correctInput[i] = inputCombo[3].inputs[i];
-		}
-		else if ((Random()%5) == 4){
-				correctInput[i] = inputCombo[4].inputs[i];
-		}
-		else if ((Random()%5) == 5){
-				correctInput[i] = inputCombo[5].inputs[i];
+	
+	 randomValue = TIMER0_TAV_R;
+	
+	if ((randomValue%5) == 0){
+		for (uint8_t i =0; i<3; i++){
+			correctInput[i] = inputCombo[0].inputs[i];
 		}
 	}
+	else if ((randomValue%5) == 1){
+		for (uint8_t i =0; i<3; i++){
+			correctInput[i] = inputCombo[1].inputs[i];
+		}
+	}
+	else if ((randomValue%5) == 2){
+		for (uint8_t i =0; i<3; i++){
+			correctInput[i] = inputCombo[2].inputs[i];
+		}
+	}
+	else if ((randomValue%5) == 3){
+		for (uint8_t i =0; i<3; i++){
+			correctInput[i] = inputCombo[3].inputs[i];
+		}
+	}
+	else if ((randomValue%5) == 4){
+		for (uint8_t i =0; i<3; i++){
+			correctInput[i] = inputCombo[4].inputs[i];
+		}
+	}
+	else if ((randomValue%5) == 5){
+		for (uint8_t i =0; i<3; i++){
+			correctInput[i] = inputCombo[5].inputs[i];
+		}
+}
 }
 
 void Delay1msa(uint32_t n)

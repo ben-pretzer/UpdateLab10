@@ -135,7 +135,7 @@ int mainSoundTest(void){ 		//Works, but has tons of static
 	while(1){}
 }
 uint32_t	seed;
-int maina(void){ 		
+int mainTestMech(void){ 		
 	PLL_Init(Bus80MHz); 
 	ADC_Init();
 	//PortF_Init();
@@ -149,10 +149,14 @@ int maina(void){
 	Timer0_Init(*musicPlay,7526); 
 	ST7735_FillScreen(0x0000);  
 	ST7735_DrawBitmap(10,100,BattleOfTheInterrupts1,100,54);
+	Timer1_Init(*task, 0x00FFFFFF);
 	waitForPress();
-	seed = NVIC_ST_CURRENT_R;
-	
+	seed = TIMER1_TAV_R;
+	randomInput();
+	TIMER1_CTL_R = 0x00000000;  
+	randomInput();
 	ST7735_FillScreen(0x0000); 
+	while(1){}
 
 	
 }
@@ -168,12 +172,13 @@ int main(void){
 	uint16_t	info;
 	testInput();
 	characterInit();
+	//randomInput();
 	Timer0_Init(*musicPlay,7526); 
 	ST7735_FillScreen(0x0000);  
 	ST7735_DrawBitmap(10,100,BattleOfTheInterrupts1,100,54);
 	Delay100ms(5);
 	waitForPress();
-
+	randomInput();
 	
 	ST7735_FillScreen(0x0000); 
 	ST7735_DrawBitmap(35,160,Ninja1,23,37);
@@ -191,6 +196,10 @@ int main(void){
 	LCD_OutDec(warrior1.health);
 	ST7735_OutString("\nPlayer 2 health: ");
 	LCD_OutDec(warrior2.health);
+	ST7735_OutString("\nPress buttons: ");
+	LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
+	LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
+	LCD_OutDec(correctInput[2]); 
 	
 	while(1)
 		{
@@ -204,6 +213,10 @@ int main(void){
 			LCD_OutDec(warrior1.health);
 			ST7735_OutString("\nPlayer 2 health: ");
 			LCD_OutDec(warrior2.health);
+			ST7735_OutString("\nPress buttons: ");
+			LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
+			LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
+			LCD_OutDec(correctInput[2]); 
 			
 			while(ADCMail>500){}
 			SYSCTL_RCGCGPIO_R |= 0x10; 
@@ -217,6 +230,10 @@ int main(void){
 			LCD_OutDec(warrior1.health);
 			ST7735_OutString("\nPlayer 2 health: ");
 			LCD_OutDec(warrior2.health);
+			ST7735_OutString("\nPress buttons: ");
+			LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
+			LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
+			LCD_OutDec(correctInput[2]); 
 			ST7735_DrawBitmap(35,160,Ninja1,23,37);
 			ST7735_DrawBitmap(60,160,Ninja1Flipped,20,33);
 			ST7735_SetCursor(0,0);
@@ -228,6 +245,7 @@ int main(void){
 				while(ADCstatus == 0){}
 				ADCstatus = 0;
 				info = Convert(ADCMail);
+				randomInput();
 				ST7735_FillScreen(0x0000); 
 				ST7735_SetCursor(0,0);
 				ST7735_OutString("Player 1 attacks\n");
@@ -316,6 +334,12 @@ int main(void){
 				LCD_OutDec(warrior1.health);
 				ST7735_OutString("\nPlayer 2 health: ");
 				LCD_OutDec(warrior2.health);
+				ST7735_OutString("\nPress buttons: ");
+				LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
+				LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
+				LCD_OutDec(correctInput[2]); 
+				ST7735_SetCursor(0,0);
+				
 				
 				if (warrior2.health <= 0){
 					//Display victory message
@@ -333,6 +357,7 @@ int main(void){
 				while(ADCstatus == 0){}
 				ADCstatus = 0;
 				info = Convert(ADCMail);
+				randomInput();
 				ST7735_FillScreen(0x0000); 
 				ST7735_SetCursor(0,0);
 				ST7735_OutString("Player 2 attacks\n");
@@ -429,6 +454,11 @@ int main(void){
 				LCD_OutDec(warrior1.health);
 				ST7735_OutString("\nPlayer 2 health: ");
 				LCD_OutDec(warrior2.health);
+				ST7735_OutString("\nPress buttons: ");
+				LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
+				LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
+				LCD_OutDec(correctInput[2]); 
+				ST7735_SetCursor(0,0);
 				
 				if (warrior1.health <= 0){
 					//Display victory message
@@ -443,6 +473,7 @@ int main(void){
 			while (warrior1Index>=3 && warrior2Index>=3){
 				SYSCTL_RCGCGPIO_R &= ~0x10; 
 				SYSCTL_RCGCGPIO_R &= ~0x4; 
+				randomInput();
 				ST7735_SetCursor(0,0);
 				ST7735_OutString("Both of y'all suck\n");
 				ST7735_OutString("Player 1 health: ");
@@ -475,6 +506,10 @@ int main(void){
 				LCD_OutDec(warrior1.health);
 				ST7735_OutString("\nPlayer 2 health: ");
 				LCD_OutDec(warrior2.health);
+				ST7735_OutString("\nPress buttons: ");
+				LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
+				LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
+				LCD_OutDec(correctInput[2]); 
 				ST7735_SetCursor(0,0);
 			}
 			

@@ -88,11 +88,12 @@ void Delay1msa(uint32_t n)
 }
 
 uint8_t	GPIOPortE_Handler(void){
+	GPIO_PORTE_ICR_R = 0x7;
 	uint32_t 	tempInput;
 	tempInput = GPIO_PORTE_DATA_R & 0x7;
 	
-	Delay1msa(400);
-	GPIO_PORTE_ICR_R = 0x7;
+	Delay1msa(25);
+
 	
 	if (tempInput == 0x1){
 		warrior2.input[warrior2Index] = 0;
@@ -108,6 +109,9 @@ uint8_t	GPIOPortE_Handler(void){
 	}
 	
 	warrior2Index++;
+	if (warrior2Index > 4){
+		warrior2Index = 4;
+	}
 	//Call checkPlayer2
 	//Since edge trigger does not operate on ADC/Slide pot, make player press button after drawing slide pot
 	if (checkPlayer2() == 1){
@@ -123,11 +127,13 @@ uint8_t	GPIOPortE_Handler(void){
 //Will return 1 if correct, 0 if incorrect
 uint8_t GPIOPortC_Handler(void){	//Have to rename
 	//When trigger interrupts, check whatever button was pressed and put into warrior1.input[i]
+	GPIO_PORTC_ICR_R = 0x070;
+	
 	uint32_t 	tempInput;
 	tempInput = (GPIO_PORTC_DATA_R | 0x7) >> 4;
 	
-	Delay1msa(400);
-	GPIO_PORTC_ICR_R = 0x070;
+	Delay1msa(25);
+
 	
 	if (tempInput == 0x1){
 		warrior1.input[warrior1Index] = 0;
@@ -143,6 +149,9 @@ uint8_t GPIOPortC_Handler(void){	//Have to rename
 	}
 	
 	warrior1Index++;
+	if (warrior1Index > 4){
+		warrior1Index = 4;
+	}
 	//Call checkPlayer1
 	//Since edge trigger does not operate on ADC/Slide pot, make player press button after drawing slide pot
 	if (checkPlayer1() == 1){

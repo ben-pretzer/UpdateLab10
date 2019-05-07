@@ -21,7 +21,7 @@ I (DAC.h)(0x5CCC8013)
 I (tm4c123gh6pm.h)(0x5CCC7E30)
 F (.\LCD.s)(0x5CCC7E30)(--cpu Cortex-M4 -g --apcs=interwork -I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\lcd.lst --xref -o .\lcd.o --depend .\lcd.d)
 F (.\Print.s)(0x5CCC7E30)(--cpu Cortex-M4 -g --apcs=interwork -I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123--pd "__UVISION_VERSION SETA 526" --pd "_RTE_ SETA 1" --pd "TM4C123GH6PM SETA 1"--list .\print.lst --xref -o .\print.o --depend .\print.d)
-F (.\SpaceInvaders.c)(0x5CD0FD82)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\spaceinvaders.o --omf_browse .\spaceinvaders.crf --depend .\spaceinvaders.d)
+F (.\SpaceInvaders.c)(0x5CD10235)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\spaceinvaders.o --omf_browse .\spaceinvaders.crf --depend .\spaceinvaders.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599FA01E)
 I (tm4c123gh6pm.h)(0x5CCC7E30)
 I (ST7735.h)(0x5CCC7E30)
@@ -45,7 +45,7 @@ F (.\PLL.c)(0x5CCC7E30)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599FA01E)
 I (PLL.h)(0x5CCC7E30)
 I (tm4c123gh6pm.h)(0x5CCC7E30)
-F (.\Characters.c)(0x5CCE24AF)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\characters.o --omf_browse .\characters.crf --depend .\characters.d)
+F (.\Characters.c)(0x5CD1070F)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\characters.o --omf_browse .\characters.crf --depend .\characters.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599FA01E)
 I (tm4c123gh6pm.h)(0x5CCC7E30)
 I (ST7735.h)(0x5CCC7E30)
@@ -56,7 +56,7 @@ I (Sound.h)(0x5CCC82E3)
 I (Timer0.h)(0x5CCC85B0)
 I (Timer1.h)(0x5CD0E557)
 F (.\Characters.h)(0x5CCDB501)()
-F (.\ButtonInput.c)(0x5CD0F3A9)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\buttoninput.o --omf_browse .\buttoninput.crf --depend .\buttoninput.d)
+F (.\ButtonInput.c)(0x5CD1070F)(--c99 -c --cpu Cortex-M4 -g -O0 --apcs=interwork --split_sections --signed_chars -I .. -I ..\..\.. --C99-I.\RTE\_SpaceInvaders-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.4.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\TM4C_DFP\1.1.0\Device\Include\TM4C123-D__UVISION_VERSION="526" -D_RTE_ -DTM4C123GH6PM -Drvmdk -DPART_LM4F120H5QR-o .\buttoninput.o --omf_browse .\buttoninput.crf --depend .\buttoninput.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x599FA01E)
 I (tm4c123gh6pm.h)(0x5CCC7E30)
 I (ST7735.h)(0x5CCC7E30)

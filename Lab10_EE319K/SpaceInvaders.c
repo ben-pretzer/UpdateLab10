@@ -213,10 +213,7 @@ int main(void){
 			LCD_OutDec(warrior1.health);
 			ST7735_OutString("\nPlayer 2 health: ");
 			LCD_OutDec(warrior2.health);
-			ST7735_OutString("\nPress buttons: ");
-			LCD_OutDec(correctInput[0]); ST7735_OutString(" ");
-			LCD_OutDec(correctInput[1]); ST7735_OutString(" ");
-			LCD_OutDec(correctInput[2]); 
+			randomInput();
 			
 			while(ADCMail>500){}
 			SYSCTL_RCGCGPIO_R |= 0x10; 
@@ -343,6 +340,12 @@ int main(void){
 				
 				if (warrior2.health <= 0){
 					//Display victory message
+					ST7735_FillScreen(0x0000);
+					ST7735_SetCursor(0,0);
+					ST7735_OutString("Player 1 health: ");
+					LCD_OutDec(warrior1.health);
+					ST7735_OutString("\nPlayer 2 health: ");
+					LCD_OutDec(warrior2.health);
 					ST7735_OutString("\nPlayer 1 wins!\n");
 					SYSCTL_RCGCGPIO_R &= ~0x10; 
 					SYSCTL_RCGCGPIO_R &= ~0x4; 
@@ -462,6 +465,12 @@ int main(void){
 				
 				if (warrior1.health <= 0){
 					//Display victory message
+					ST7735_FillScreen(0x0000);
+					ST7735_SetCursor(0,0);
+					ST7735_OutString("Player 1 health: ");
+					LCD_OutDec(warrior1.health);
+					ST7735_OutString("\nPlayer 2 health: ");
+					LCD_OutDec(warrior2.health);
 					ST7735_OutString("\nPlayer 2 wins!\n");
 					SYSCTL_RCGCGPIO_R &= ~0x10; 
 					SYSCTL_RCGCGPIO_R &= ~0x4; 
@@ -475,6 +484,9 @@ int main(void){
 				SYSCTL_RCGCGPIO_R &= ~0x4; 
 				randomInput();
 				ST7735_SetCursor(0,0);
+				ST7735_FillScreen(0x0000); 
+				ST7735_DrawBitmap(60,160,Ninja1Flipped,20,33);
+				ST7735_DrawBitmap(35,160,Ninja1,23,37);	
 				ST7735_OutString("Both of y'all suck\n");
 				ST7735_OutString("Player 1 health: ");
 				LCD_OutDec(warrior1.health);
